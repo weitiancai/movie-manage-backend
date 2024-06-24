@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.wmg.mapper.MenuMapper">
+    <select id="existsItem" resultType="java.lang.Integer">
+        select 1
+        from menu a
+        where lower(a.title) like concat('%',#{title},'%')
+        limit 1
+    </select>
+    <delete id="deleteOne">
+        delete from menu where id = #{id}
+    </delete>
+    <!-- property对 应实体类的属性名称，column为数据库字段名
+  <resultMap id="sso" type="com.duing.securityssoserver.entity.MyUsername">
+      <id column="" property=""/>
+      <result column="" property=""/>
+  </resultMap>-->
+    <select id="selectOne" resultType="org.wmg.security.model.Menu">
+        select *
+        from menu
+        where title like concat('%',#{title},'%')
+        limit 1000
+    </select>
+
+    <select id="selectFid" resultType="org.wmg.security.model.Menu">
+        SELECT *
+        FROM `menu`
+        WHERE `id`=#{fid} limit 1000
+    </select>
+    <select id="selectByMenuPage" resultType="org.wmg.security.model.Menu">
+    select * from menu where title like concat('%',#{title},'%')
+    </select>
+    <select id="selectByMyId" resultType = "org.wmg.security.model.Menu">
+        select * from menu where id = #{1} limit 1
+    </select>
+    <select id="selectAnyTable" resultType="java.util.Map">
+        select *
+        from ${tableName}
+        where ${columnName} like concat('%',#{likeValue},'%') limit 1000
+    </select>
+
+</mapper>
