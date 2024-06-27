@@ -1,6 +1,7 @@
 server:
   servlet:
     context-path: /
+  port: 8081
 
 # better readable jackson serialization format
 spring:
@@ -36,5 +37,5 @@ jwt:
 
 logging:
   level:
-    org.zerhusen.security: DEBUG
+    org.wmg.security: DEBUG
 #    org.springframework.security: DEBUG

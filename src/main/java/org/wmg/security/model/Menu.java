@@ -19,5 +19,5 @@ public class Menu {
     private String time;
     private String path;
     private String tag;
-    private Long fsize;
+    private Long fSize;
 }
