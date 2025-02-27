@@ -88,6 +88,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/api/authenticate").permitAll()
+                .antMatchers("/api/exists").permitAll()
+
                 // .antMatchers("/api/register").permitAll()
                 // .antMatchers("/api/activate").permitAll()
                 // .antMatchers("/api/account/reset-password/init").permitAll()
@@ -98,6 +100,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/select/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                 .antMatchers("/api/delete/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/api/edit/**").hasAuthority("ROLE_ADMIN")
+
                 .anyRequest().authenticated()
 
                 .and()
